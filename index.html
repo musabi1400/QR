@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>مولد رمز QR</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+</head>
+<body>
+  <h1>مولد رمز QR</h1>
+  <div id="qr-code"></div>
+  <form id="controls">
+    <label>النص:
+      <input id="data" type="text" placeholder="أدخل النص" />
+    </label>
+    <label>لون النقاط:
+      <input id="dotColor" type="color" value="#000000" />
+    </label>
+    <label>لون الخلفية:
+      <input id="bgColor" type="color" value="#ffffff" />
+    </label>
+    <label>شكل النقاط:
+      <select id="dotStyle">
+        <option value="square">مربعة</option>
+        <option value="dots">نقاط</option>
+        <option value="rounded">مدورة</option>
+        <option value="extra-rounded">مدورة جدًا</option>
+        <option value="classy">Classy</option>
+        <option value="classy-rounded">Classy Rounded</option>
+      </select>
+    </label>
+    <label>صورة في الوسط:
+      <input id="imageInput" type="file" accept="image/*" />
+    </label>
+    <label>صيغة التحميل:
+      <select id="fileType">
+        <option value="png">PNG</option>
+        <option value="svg">SVG</option>
+      </select>
+    </label>
+    <button id="download">تحميل</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
