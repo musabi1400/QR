@@ -2,44 +2,77 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="توليد رموز QR مخصصة مع ألوان وصور" />
   <title>مولد رمز QR</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
 </head>
 <body>
-  <h1>مولد رمز QR</h1>
-  <div id="qr-code"></div>
-  <form id="controls">
-    <label>النص:
-      <input id="data" type="text" placeholder="أدخل النص" />
-    </label>
-    <label>لون النقاط:
-      <input id="dotColor" type="color" value="#000000" />
-    </label>
-    <label>لون الخلفية:
-      <input id="bgColor" type="color" value="#ffffff" />
-    </label>
-    <label>شكل النقاط:
-      <select id="dotStyle">
-        <option value="square">مربعة</option>
-        <option value="dots">نقاط</option>
-        <option value="rounded">مدورة</option>
-        <option value="extra-rounded">مدورة جدًا</option>
-        <option value="classy">Classy</option>
-        <option value="classy-rounded">Classy Rounded</option>
-      </select>
-    </label>
-    <label>صورة في الوسط:
-      <input id="imageInput" type="file" accept="image/*" />
-    </label>
-    <label>صيغة التحميل:
-      <select id="fileType">
-        <option value="png">PNG</option>
-        <option value="svg">SVG</option>
-      </select>
-    </label>
-    <button id="download">تحميل</button>
-  </form>
+  <header class="container qr-header">
+    <div class="row row--qr-header">
+      <div class="col qr-logo">
+        <img class="qr-logo__img" src="https://dummyimage.com/60x60/000/fff&text=QR" alt="شعار QR" />
+      </div>
+      <a target="_blank" rel="noopener" class="col white" href="https://www.npmjs.com/package/qr-code-styling">npm</a>
+      <a target="_blank" rel="noopener" class="col white" href="https://github.com/kozakdenys/qr-code-styling">GitHub</a>
+    </div>
+  </header>
+  <main>
+    <section class="container">
+      <div class="row row--body">
+        <form class="col qr-form" id="form">
+          <button type="button" class="accordion accordion--open">الخيارات الأساسية</button>
+          <div class="panel panel--open">
+            <label for="form-data">البيانات</label>
+            <textarea id="form-data">https://qr-code-styling.com</textarea>
+            <label for="form-image-file">ملف الصورة</label>
+            <input id="form-image-file" type="file" />
+            <label for="form-width">العرض</label>
+            <input id="form-width" type="number" min="100" max="10000" value="300" />
+            <label for="form-height">الارتفاع</label>
+            <input id="form-height" type="number" min="100" max="10000" value="300" />
+            <label for="form-margin">الهامش</label>
+            <input id="form-margin" type="number" min="0" max="10000" value="0" />
+          </div>
+          <button type="button" class="accordion">خيارات النقاط</button>
+          <div class="panel">
+            <label for="form-dots-type">نمط النقاط</label>
+            <select id="form-dots-type">
+              <option value="square">مربعة</option>
+              <option value="dots">نقاط</option>
+              <option value="rounded">مدورة</option>
+              <option value="extra-rounded" selected>مدورة جدًا</option>
+              <option value="classy">Classy</option>
+              <option value="classy-rounded">Classy Rounded</option>
+            </select>
+            <label for="form-dots-color">لون النقاط</label>
+            <input id="form-dots-color" type="color" value="#6a1a4c" />
+          </div>
+          <button type="button" class="accordion">خيارات الخلفية</button>
+          <div class="panel">
+            <label for="form-background-color">لون الخلفية</label>
+            <input id="form-background-color" type="color" value="#ffffff" />
+          </div>
+          <div class="options-export-group">
+            <a class="button" id="export-options">تصدير الخيارات كـ JSON</a>
+          </div>
+        </form>
+        <div class="col qr-code-container">
+          <div class="qr-code" id="qr-code"></div>
+          <div class="qr-download-group">
+            <button id="qr-download">تحميل</button>
+            <label class="hide" for="qr-extension">الامتداد</label>
+            <select id="qr-extension">
+              <option value="png" selected>PNG</option>
+              <option value="jpeg">JPEG</option>
+              <option value="svg">SVG</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
